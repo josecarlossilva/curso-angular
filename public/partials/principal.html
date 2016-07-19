@@ -1,14 +1,28 @@
- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form>
-                <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{debounce: 500}"/>
-            </form>
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="form-group">
+              <div class="inptu-group">
+                <span class="input-group-btn">
+                  <a href="/fotos/new" class="btn btn-primary" type="button">
+                      Nova Foto
+                  </a>
+                </span>
+              </div>
+
+                <input class="form-control" placeholder="filtrar pelo título da foto"
+                       ng-model="filtro" ng-model-options="{ debounce: 500}">
+            </div>
+        </form>
     </div>
-    <meu-panel titulo="{{foto.titulo}}" ng-repeat="foto in fotos | filter: {titulo: filtro}">
-        <minha-imagem url="{{foto.url}}" titulo="{{foto.titulo}}" >
-        </minha-imagem>
-    </meu-panel>
-   
 </div>
+
+<meu-painel titulo="{{foto.titulo}}" ng-repeat="foto in fotos | filter: {titulo: filtro}">
+    <minha-foto titulo="{{foto.titulo}}" url="{{foto.url}}"></minha-foto>
+    <button class="btn btn-danger btn-block" ng-click="remover(foto)">
+      Remover
+    </button>
+    <a class="btn btn-primary btn-block" href="/fotos/edit/{{foto._id}}">
+      Editar
+    </a>
+</meu-painel>

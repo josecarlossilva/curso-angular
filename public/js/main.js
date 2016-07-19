@@ -1,12 +1,18 @@
-angular.module('alurapic', ['diretivas', 'ngAnimate', 'ngRoute'])
-		.config(function($routeProvider, $locationProvider){
-			$locationProvider.html5Mode(true);
-			$routeProvider.when('/fotos', {
-				templateUrl: 'partials/principal.html',
-				controller: 'FotosController'
-			}).when('/fotos/new', {
-				templateUrl: 'partials/foto.html'
-			})
-			//rota padrao
-			$routeProvider.otherwise({redirectTo: '/fotos'});
-		}); //A dependência é string pois as coisas são criadas em qualquer ordem. usar variável traria a necessidade de ordenação e pré-existência.
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
+    .config(function ($routeProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
+
+        $routeProvider.otherwise({redirectTo: '/fotos/new'});
+
+        $routeProvider.when('/fotos', {
+            templateUrl: 'partials/principal.html',
+            controller: 'FotosController'
+        }).when('/fotos/new', {
+            templateUrl: 'partials/cadastro.html',
+            controller : 'CadastroController'
+        }).when('/fotos/edit/:fotoId', {
+            templateUrl: 'partials/cadastro.html',
+            controller : 'CadastroController'
+        });
+    });

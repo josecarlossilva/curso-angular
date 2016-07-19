@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="alurapic">
-    <head>
-        <base href="/">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Alurapic</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/lib/angular-animate.min.js"></script>
-        <script src="js/lib/angular-route.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/diretivas.js"></script>
-        <script src="js/controllers/fotos-controller.js"></script>
+<html lang="pt-br" ng-app="alurapic" xmlns:debounce="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <base href="/">
+    <title>Alurapic</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/efeitos.css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/angular-resource.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controller/fotos-controller.js"></script>
+    <script src="js/controller/cadastro-controller.js"></script>
+    <script src="js/directives/minhas-diretivas.js"></script>
+    <script src="js/services/meus-servicos.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-center">Alurapic</h1>
+    </div>
+    <p ng-show="mensagem" class="alert alert-info">
+      {{mensagem}}
+    </p>
+    <ng-view></ng-view>
+</div>
+</body>
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="jumbotron">
-                <h1 class="text-center">Alurapic</h1>
-            </div>
-            <ng-view></ng-view>
-        </div>
-    </body>
 </html>
